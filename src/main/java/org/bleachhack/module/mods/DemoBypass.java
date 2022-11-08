@@ -15,16 +15,12 @@ public class DemoBypass extends Module {
     }
 
     @BleachSubscribe
-    public void DemoBypass1(EventPacket.Read eventReadPacket) {
-        if (eventReadPacket.getPacket().equals(GameStateChangeS2CPacket.DEMO_MESSAGE_SHOWN)) {
-            Event.setCancelled(true);
+    public void onGameEvent(EventPacket.Read event) {
+        if (event.getPacket() instanceof GameStateChangeS2CPacket packet) {
+            if (packet.getReason() == GameStateChangeS2CPacket.GAME_WON || packet.getReason() == GameStateChangeS2CPacket.DEMO_MESSAGE_SHOWN) {
+                Event.setCancelled(true);
+            }
         }
     }
 
-    @BleachSubscribe
-    public void DemoBypass2(EventPacket.Read eventReadPacket) {
-        if (eventReadPacket.getPacket().equals(GameStateChangeS2CPacket.GAME_WON)) {
-            Event.setCancelled(true);
-        }
-    }
 }
