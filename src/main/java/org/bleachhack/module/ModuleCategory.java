@@ -18,6 +18,7 @@ public enum ModuleCategory {
 	MOVEMENT(new ItemStack(Items.POTION)),
 	EXPLOITS(new ItemStack(Items.REPEATING_COMMAND_BLOCK)),
 	MISC(new ItemStack(Items.NAUTILUS_SHELL)),
+	OVERFLOW(new ItemStack(Items.REDSTONE_BLOCK)),
 	WORLD(new ItemStack(Items.GRASS_BLOCK));
 	
 	private final ItemStack item;

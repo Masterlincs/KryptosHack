@@ -18,7 +18,7 @@ public class Event {
 		return cancelled;
 	}
 
-	public void setCancelled(boolean cancelled) {
+	public static void setCancelled(boolean cancelled) {
 		this.cancelled = cancelled;
 	}
 }
